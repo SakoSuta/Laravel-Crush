@@ -17,12 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Afficher le formulaire d'envoi de message
-Route::get('/messages/create', [App\Http\Controllers\MessageController::class, 'create'])->name('messages.create');
+// Routes pour l'envoi de messages
+Route::get('/messages/create', 'MessageController@create')->name('messages.create');
+Route::post('/messages', 'MessageController@store')->name('messages.store');
 
-// Enregistrer le message dans la base de données
-Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store'])->name('messages.store');
+// Route pour afficher le message secret
+Route::get('/message/{token}', 'MessageController@show')->name('messages.show');
 
-// Afficher le message secret
-Route::get('/message/{token}', [App\Http\Controllers\MessageController::class, 'show'])->name('messages.show');
 
