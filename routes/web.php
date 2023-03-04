@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/messages/create',[MessageController::class, 'index']);
-Route::post('/messages',[MessageController::class, 'sendMessage']);
+Route::get('/messages',[MessageController::class, 'index']);
+Route::post('/messages',[MessageController::class, 'PostMessage']);
 Route::get('/message/{token}',[MessageController::class, 'show']);
 

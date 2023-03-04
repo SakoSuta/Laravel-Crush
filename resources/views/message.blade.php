@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
+
     <title>Laravel Crush</title>
 </head>
 <body>
-<h1>Envoyer un message secret 🫣 </h1>
+<h1>Quelle est votre message ?</h1>
 
 @if (session('message'))
     <p>{{ session('message') }}</p>
@@ -24,7 +25,7 @@
         <label for="message">Message :</label>
         <textarea name="message" required minlength="15"></textarea>
     </div>
-    <button type="submit">Envoie le !</button>
+    <button type="submit">Envoyer</button>
 </form>
 </body>
 </html>

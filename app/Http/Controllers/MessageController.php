@@ -19,7 +19,7 @@ class MessageController extends Controller
         return view('message');
     }
 
-    public function sendMessage(Request $request): \Illuminate\Http\RedirectResponse
+    public function PostMessage(Request $request): \Illuminate\Http\RedirectResponse
     {
         $validatedData = $request->validate([
             'email' => 'required|email',
@@ -45,7 +45,7 @@ class MessageController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('message', 'Ton message secret a été envoyé 😳 !');
+            return redirect()->back()->with('message', 'Message envoyé');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', 'Une erreur s\'est produite lors de l\'envoi de ton message.');
@@ -59,7 +59,7 @@ class MessageController extends Controller
             $message->delete();
             return view('secret')->with('message', $message->message);
         } catch (ModelNotFoundException $exception){
-            $message = 'Tu l\'a déjà lu ! ( si c\'est pas toi dommage il a été détruit 🤭 ) ' ;
+            $message = 'Le Message a été détruit' ;
             return view('secret')->with('message', $message);
 
         }
