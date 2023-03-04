@@ -27,7 +27,7 @@ class MessageController extends Controller
         ]);
 
         $message = $validatedData['message'];
-        $token = Str::random(16);
+        $token = Str::random(32);
 
         $data = [
             'link' => url('/message/' . $token),
